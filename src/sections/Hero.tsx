@@ -67,7 +67,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-[1800px] px-5 sm:px-8">
         <div className="flex flex-col items-start [filter:drop-shadow(0_4px_28px_rgba(0,0,0,0.7))]">
           <div className="mb-7 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.28em] text-ember-bright">
             <span className="inline-block h-px w-10 bg-ember/60" />

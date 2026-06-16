@@ -59,7 +59,7 @@ export default function Temper() {
       </div>
 
       {/* footer */}
-      <footer className="relative mx-auto mt-28 max-w-7xl border-t border-line/60 py-10">
+      <footer className="relative mx-auto mt-28 max-w-[1800px] border-t border-line/60 py-10">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="flex items-center gap-2.5 text-ash">
             <Anvil width={16} height={16} className="text-ember/70" />

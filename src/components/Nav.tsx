@@ -18,7 +18,7 @@ export default function Nav() {
       }`}
     >
       <div
-        className={`mx-auto flex max-w-7xl items-center justify-between px-5 transition-all duration-500 sm:px-8 ${
+        className={`mx-auto flex max-w-[1800px] items-center justify-between px-5 transition-all duration-500 sm:px-8 ${
           lifted ? 'opacity-100' : 'opacity-95'
         }`}
       >

@@ -41,7 +41,7 @@ function BladeCase({ blade, idx }: { blade: Blade; idx: number }) {
 
   return (
     <article ref={root} className="relative border-t border-line/60 py-24 sm:py-32">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto grid max-w-[1800px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
         {/* visual */}
         <div className={`relative overflow-hidden rounded-2xl border border-line ${flip ? 'lg:order-2' : ''}`}>
           <div className="relative aspect-[4/3] overflow-hidden">
@@ -142,7 +142,7 @@ function BladeCase({ blade, idx }: { blade: Blade; idx: number }) {
 export default function Blades() {
   return (
     <section id="blades" className="relative px-0 py-12">
-      <div className="mx-auto mb-4 max-w-7xl px-5 sm:px-8">
+      <div className="mx-auto mb-4 max-w-[1800px] px-5 sm:px-8">
         <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.28em] text-ash">
           <span className="text-ember">/</span> The Blades
         </p>

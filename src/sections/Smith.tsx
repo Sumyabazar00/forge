@@ -17,7 +17,7 @@ export default function Smith() {
           WebkitMaskImage: 'linear-gradient(to left, black, transparent)',
         }}
       />
-      <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
+      <div className="relative mx-auto grid max-w-[1800px] gap-14 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
         <div>
           <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.28em] text-ash">
             <span className="text-ember">/</span> The Smith

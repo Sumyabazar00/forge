@@ -6,7 +6,7 @@ import { Hammer } from '../components/icons'
 export default function Rack() {
   return (
     <section id="rack" className="relative px-5 py-28 sm:px-8 sm:py-36">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1800px]">
         <div className="mb-14">
           <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.28em] text-ash">
             <span className="text-ember">/</span> The Rack

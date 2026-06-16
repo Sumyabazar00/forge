@@ -5,7 +5,7 @@ import { stations } from '../data/content'
 export default function Stations() {
   return (
     <section id="stations" className="relative px-5 py-28 sm:px-8 sm:py-36">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1800px]">
         <div className="mb-16 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.28em] text-ash">
