@@ -1,0 +1,130 @@
+@import 'tailwindcss';
+
+@theme {
+  /* ---- Forge palette: cold steel + molten heat ---- */
+  --color-void: #050608;        /* deepest background */
+  --color-coal: #0a0b0f;        /* base surface */
+  --color-iron: #121319;        /* raised surface */
+  --color-graphite: #1b1d25;    /* cards */
+  --color-line: #262833;        /* hairline borders */
+  --color-ash: #8d887e;         /* muted, warm gray text */
+  --color-steel: #ece9e3;       /* primary text, warm off-white */
+
+  --color-ember: #ff6a1a;       /* primary molten orange */
+  --color-ember-bright: #ff9b3d;
+  --color-whitehot: #ffe7bd;    /* white-hot highlight */
+  --color-forge-deep: #c0360b;  /* deep glowing red */
+  --color-temper: #5a83c9;      /* tempered-steel blue accent */
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: auto; /* Lenis owns scrolling */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-void);
+    color: var(--color-steel);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-ember);
+    color: var(--color-void);
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+@layer utilities {
+  /* Film grain overlay */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Vignette darkening at edges */
+  .vignette::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(ellipse 80% 70% at 50% 45%, transparent 35%, rgba(5, 6, 8, 0.55) 100%);
+  }
+
+  /* Hammered-steel surface, generated procedurally (no image asset) */
+  .steel-surface {
+    background-color: #0c0d12;
+    background-image:
+      radial-gradient(120% 120% at 20% 0%, rgba(255, 106, 26, 0.06), transparent 45%),
+      repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.012) 0 2px, transparent 2px 5px),
+      repeating-linear-gradient(200deg, rgba(0, 0, 0, 0.25) 0 3px, transparent 3px 7px),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.04' numOctaves='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)' opacity='0.5'/%3E%3C/svg%3E");
+    background-blend-mode: screen, overlay, multiply, soft-light;
+  }
+
+  .glass {
+    background: color-mix(in srgb, var(--color-iron) 55%, transparent);
+    backdrop-filter: blur(14px) saturate(120%);
+    border: 1px solid color-mix(in srgb, var(--color-line) 80%, transparent);
+  }
+
+  /* Molten text fill */
+  .text-molten {
+    background: linear-gradient(180deg, var(--color-whitehot) 0%, var(--color-ember-bright) 45%, var(--color-ember) 70%, var(--color-forge-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-ember {
+    text-shadow: 0 0 28px rgba(255, 106, 26, 0.55), 0 0 60px rgba(255, 106, 26, 0.25);
+  }
+
+  .ring-ember {
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-ember) 40%, transparent),
+      0 0 40px -8px rgba(255, 106, 26, 0.4);
+  }
+
+  .hairline {
+    border-top: 1px solid var(--color-line);
+  }
+
+  /* Per-character heat reveal: starts dark + blurred, settles to steel */
+  .char {
+    display: inline-block;
+    will-change: transform, filter, opacity;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
